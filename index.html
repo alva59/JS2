@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>JS2</title>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="multi_table">
+                    <input type="text" name="M_table" class="namota" id="namota" placeholder="Multi-Table">
+                    <button type="button" class="btn-custom" onclick="Click()">Show Table</button>
+                    <h2 id="ShowTable"></h2>
+                </div>
+            </div>
+            <script>
+                function Click(){
+                    var Digit=document.getElementById("namota").value;
+                    var a=10;
+                    var table="";
+                    
+                    for(var i=1; i<=a; i++){
+                        table=table+Digit+"x"+i+"="+Digit*i+"<br>";
+                        document.getElementById("ShowTable").innerHTML=table;
+                    }
+                }
+            </script>
+            <div class="col-sm-6 signup-form">
+					<form name="regform">
+						<input type="text" name="fname" placeholder="Full name">
+						<input type="text" name="phone" placeholder="Phone">
+						<input type="mail" name="mail" placeholder="Mail address">
+						<input type="password" name="pw" placeholder="Password">
+						<input type="password" name="rpw" placeholder="Retype password">
+
+						<button type="button" class="btn-custom" onclick="SignUp()">Submit</button>
+
+						<h2 id="Result"></h2>
+					</form>
+					<script>
+						function SignUp(){
+							var fn=document.regform.fname.value; 
+							var ph=document.regform.phone.value; 
+							var ml=document.regform.mail.value; 
+							var pw=document.regform.pw.value; 
+							var rpw=document.regform.rpw.value; 
+
+							var result=document.getElementById("Result");
+
+							if (fn =="" || ph=="" || ml=="" || pw=="" || rpw=="") {
+
+								result.innerHTML="Blank field not allowed";
+							}
+							else if(ph.length<11){
+								result.innerHTML="Enter valid number";
+							}
+							else if(pw.length<4){
+								result.innerHTML="Weak Password";
+							}
+							else if(pw !=rpw){
+								result.innerHTML="The password is not matched";
+							}
+							else{
+								result.innerHTML="Full name:"+fn+"<br>"+"Phone:"+ph+"<br>"+"Mail:"+ml;
+							}
+						} 
+
+					</script>
+				</div>
+        </div>
+    </div>
+       <hr Class="BorDer">
+       <div class="container">
+            <div class="row">
+              <div class="col-md-4 col-md-offset-4 calculator">
+				    <form name="form">
+                        <input class="num" type="text" name="num" id= "num" readonly><br/>
+                        <div class="row">
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckC()">C</button></div>
+                            <div class="col-md-3"><button type="button" class="btn-calc" onclick="ClickRoot()">√</button></div>
+                            <div class="col-md-3"><button type="button" class="btn-calc" onclick="ClickPercentage()">%</button></div>
+                            <div class="col-md-3"><button type="button" class="btn-calc" onclick="ClickArrow()">←</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckSeven()">7</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckEight()">8</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckNine()">9</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckDevide()">/</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckFour()">4</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckFive()">5</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckSix()">6</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckMult()">x</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckOne()">1</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckTwo()">2</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckThree()">3</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckMinus()">-</button></div>
+                             <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckPoint()">.</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckZero()">0</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckEqual()">=</button></div>
+                            <div class="col-md-3"><button class="btn-calc" type="button" onclick="ClckPlus()">+</button></div>
+                        </div>
+                        
+				    </form>
+
+						<script>
+							function ClckOne(){document.getElementById("num").value += 1;}
+							function ClckTwo(){document.getElementById("num").value +=2;}
+							function ClckThree(){document.getElementById("num").value +=3;}
+							function ClckFour(){document.getElementById("num").value +=4;}
+							function ClckFive(){document.getElementById("num").value +=5;}
+							function ClckSix(){document.getElementById("num").value +=6;}
+							function ClckSeven(){document.getElementById("num").value +=7;}
+							function ClckEight(){document.getElementById("num").value +=8;}
+							function ClckNine(){document.getElementById("num").value +=9;}
+							function ClckZero(){document.getElementById("num").value +=0;}
+							function ClckPoint(){document.getElementById("num").value +=".";}
+							function ClckPlus(){document.getElementById("num").value +="+";}
+							function ClckMinus(){document.getElementById("num").value +="-";}
+							function ClckMult(){document.getElementById("num").value +="*";}
+							function ClckDevide(){document.getElementById("num").value +="/";}
+							function ClckRoot(){document.getElementById("num").value +="√";}
+							function ClckPercentage(){document.getElementById("num").value +="%";}
+							function ClckArrow(){document.getElementById("num").value +="←";}
+							function ClckC(){document.getElementById("num").value ="";}
+
+
+							function ClckEqual(){
+								var result=eval(document.form.num.value);
+								document.form.num.value=result;
+							}
+						</script>
+				</div>
+       </div>
+       </div>
+
+    
+				
+        <script src="js/bootstrap.min.js"></script>
+    </body>
+</html>
